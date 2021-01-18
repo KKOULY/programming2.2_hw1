@@ -16,7 +16,10 @@ body{
 
 .bl-list {
     float: left;
-    background: #cdcbcb;
+    /*background: #cdcbcb;*/
+    border: 1px solid #e3e0e0;
+    border-radius: 10px;
+    background: white;
     width: 60%;
     margin-right: 30px;
 }
@@ -24,14 +27,16 @@ body{
 .bl-row.bl-find-row{
     height: 70px;
     padding: 15px 15px 15px 15px;
+    border-top: 0;
     display: flex;
 }
 
 .bl-search{
-    background: white;
+    /*background: white;*/
     font-size: 14px;
     border: 1px solid #e3e0e0;
-    border-radius: 5px;
+    border-right: 0;
+    border-radius: 5px 0 0 5px;
     width: 100%;
     padding-left: 15px;
 }
@@ -49,9 +54,9 @@ body{
 }
 
 .bl-row{
-    background: white;
+    /*background: white;*/
     height: 100%;
-    border: 1px solid #e3e0e0;
+    border-top: 1px solid #e3e0e0;
     border-radius: 1px;
     display: flex;
 }
@@ -110,6 +115,8 @@ body{
 .bl-button.plus{
     background: #00bc00;
     box-shadow: 0px -3px 0px 0px #00a400 inset;
+    min-width: 30px;
+    min-height: 30px;
 }
 
 .bl-button.minus{
@@ -118,6 +125,8 @@ body{
     /*box-shadow: 0px -3px 0px 0px #ca0303 inset;*/
     /*Pasive*/
     background: #ff9191;
+    min-width: 30px;
+    min-height: 30px;
 }
 
 .bl-button.delete{
@@ -132,16 +141,21 @@ body{
 }
 
 .bl-bought{
-    width: 30%;
+    width: 35%;
     float: left;
     border: 1px solid #e3e0e0;
-    border-radius: 1px;
+    border-radius: 10px;
+    background: white;
 }
 
 .bl-title{
     height: 50px;
     padding: 15px 15px 15px 15px;
     width: 100%;
+}
+
+.bl-first-row{
+    border: 0;
 }
 
 .bl-left{
@@ -154,6 +168,8 @@ body{
     float: left;
     background: #d9d9d9;
     padding: 5px 5px 5px 5px;
+    border: 1px solid white;
+    border-radius: 5px;
     display: flex;
     justify-content: left;
     margin-right: 5px;
