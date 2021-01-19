@@ -1,5 +1,5 @@
 *{
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     font-family: Arial;
     padding: 0;
     margin: 0;
@@ -7,26 +7,38 @@
 }
 body{
     background: #cdcbcb;
+    min-width: 400px;
 }
 
 .bl-background {
-    padding-top: 100px;
-    margin: 0 50px 0 50px;
+    padding-top: 86px;
+    display: flex;
+    justify-content: center;
+    /*flex-wrap: wrap;*/
+    min-width: 430px;
+}
+
+.bl-column-list{
+    width: 760px;
+    padding: 14px;
+}
+
+.bl-column-bought{
+    width: 330px;
+    padding: 14px;
 }
 
 .bl-list {
-    float: left;
     /*background: #cdcbcb;*/
     border: 1px solid #e3e0e0;
     border-radius: 10px;
     background: white;
-    width: 60%;
-    margin-right: 30px;
 }
 
 .bl-row.bl-find-row{
-    height: 70px;
-    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    height: 65px;
+    padding: 14px 14px 14px 14px;
     border-top: 0;
     display: flex;
 }
@@ -47,48 +59,57 @@ body{
     font-weight: bold;
     font-size: 15px;
     font-weight: bold;
-    box-shadow: 0 5px 0 #127ed6;
-    height: 35px;
+    /*box-shadow: 0 5px 0 #127ed6;*/
+    box-shadow: 0px -3px 0px 0px #127ed6 inset;
+    height: auto;
     width: 140px;
 
 }
 
+
 .bl-row{
     /*background: white;*/
-    height: 100%;
+    height: auto;
     border-top: 1px solid #e3e0e0;
     border-radius: 1px;
     display: flex;
 }
 
 .bl-product{
-    width: 30%;
-    font-size: 14px;
-    padding: 15px 15px 10px 15px;
+    width: 35%;
+    padding: 14px 14px 14px 14px;
+    position: relative;
+}
+
+.bl-name-product{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: auto;
+    font-size: 16px;
 }
 .bl-count{
-    width: 35%;
-    padding: 10px 5px 10px 5px;
+    width: 25%;
+    padding: 7px 14px 0px 14px;
     display: flex;
     justify-content: center;
-
 }
 
 .bl-label{
     background: #d9d9d9;
     color: #4f4f4f;
-    min-width: 30px;
-    height: 30px;
-    padding: 5px 5px 5px 5px;
+    width: auto;
+    height: 20px;
     text-align: center;
+    padding: 5px 8px 0px 8px;
     border: 1px solid white;
     border-radius: 3px;
-    margin: 0px 5px 0px 5px;
+    margin: 2px 5px 1px 5px;
 }
 
 .bl-buttons{
-    width: 35%;
-    padding: 10px 15px 10px 15px;
+    width: 40%;
+    padding: 7px 14px 7px 7px;
 }
 .bl-button-bought {
     background: #f1f0f0;
@@ -141,15 +162,15 @@ body{
 }
 
 .bl-bought{
-    width: 35%;
-    float: left;
     border: 1px solid #e3e0e0;
     border-radius: 10px;
     background: white;
 }
 
 .bl-title{
-    height: 50px;
+    height: auto;
+    font-weight: 700;
+    font-size: 18px;
     padding: 15px 15px 15px 15px;
     width: 100%;
 }
@@ -160,7 +181,7 @@ body{
 
 .bl-left{
     height: 100%;
-    padding: 15px;
+    padding: 7px 7px 7px 14px;
 }
 
 .bl-product-left{
@@ -182,21 +203,68 @@ body{
     font-weight: bold;
     padding-top: 3px;
 }
-
-.bl-product-num{
-    background: #e94000;
+.bl-product-num {
+    background: coral;
     font-size: 10px;
-    font-weight: bold;
     color: white;
-    width: 17px;
-    height: 17px;
-    padding-top: 2px;
+    width: auto;
+    height: 10px;
     text-align: center;
-    border: 1px solid #e94000;
+    padding: 2px 4px 2px 4px;
+    border: 1px solid coral;
     border-radius: 10px;
-    margin: 0px 5px 0px 5px;
+    margin: 0 5px 0 5px;
 }
 
 .bl-bought-products{
-    height: 30px;
+    min-height: 30px;
+    height: auto;
 }
+
+@media(max-width: 1200px){
+    .bl-column-list{
+        width: 630px;
+    }
+
+    .bl-column-bought{
+        width: 270px;
+    }
+}
+
+@media(max-width: 1000px){
+    .bl-column-list{
+        width: 480px;
+    }
+
+    .bl-column-bought{
+        width: 210px;
+    }
+}
+
+@media (max-width: 500px) {
+    .bl-background{
+        flex-wrap: wrap;
+    }
+    .bl-column-list{
+        width: 100%;
+    }
+    .bl-column-bought{
+        width: 100%;
+    }
+
+}
+
+.minus:hover {
+    background: #d70303;
+    box-shadow: 0px -3px 0px 0px #ca0303 inset;
+}
+
+/*@media (max-width: 500px) {*/
+/*    .bl-column-list{*/
+/*        width: 100%;*/
+/*    }*/
+/*    .bl-column-bought{*/
+/*        width: 100%;*/
+/*    }*/
+
+/*}*/
