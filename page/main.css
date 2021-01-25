@@ -1,106 +1,58 @@
 *{
-    box-sizing: border-box;
     font-family: Arial;
     padding: 0;
     margin: 0;
     border: 0;
 }
 body{
-    background: #cdcbcb;
+    background: #dbdbdb;
+    min-width: 400px;
+    position: relative;
+    min-height: 100%;
+}
+
+html, body {
+    height:100%;
 }
 
 .bl-background {
-    padding-top: 100px;
-    margin: 0 50px 0 50px;
+    padding-top: 86px;
+    display: flex;
+    justify-content: center;
+    min-width: 430px;
+}
+
+.bl-column-list{
+    width: 760px;
+    padding: 14px;
+}
+
+.bl-column-bought{
+    width: 330px;
+    padding: 14px;
 }
 
 .bl-list {
-    float: left;
-    /*background: #cdcbcb;*/
     border: 1px solid #e3e0e0;
     border-radius: 10px;
     background: white;
-    width: 60%;
-    margin-right: 30px;
 }
 
 .bl-row.bl-find-row{
-    height: 70px;
-    padding: 15px 15px 15px 15px;
+    box-sizing: border-box;
+    height: 65px;
+    padding: 14px 14px 14px 14px;
     border-top: 0;
     display: flex;
 }
 
 .bl-search{
-    /*background: white;*/
     font-size: 14px;
     border: 1px solid #e3e0e0;
     border-right: 0;
     border-radius: 5px 0 0 5px;
     width: 100%;
     padding-left: 15px;
-}
-
-.bl-button-add{
-    background: #268ad6;
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    font-weight: bold;
-    box-shadow: 0 5px 0 #127ed6;
-    height: 35px;
-    width: 140px;
-
-}
-
-.bl-row{
-    /*background: white;*/
-    height: 100%;
-    border-top: 1px solid #e3e0e0;
-    border-radius: 1px;
-    display: flex;
-}
-
-.bl-product{
-    width: 30%;
-    font-size: 14px;
-    padding: 15px 15px 10px 15px;
-}
-.bl-count{
-    width: 35%;
-    padding: 10px 5px 10px 5px;
-    display: flex;
-    justify-content: center;
-
-}
-
-.bl-label{
-    background: #d9d9d9;
-    color: #4f4f4f;
-    min-width: 30px;
-    height: 30px;
-    padding: 5px 5px 5px 5px;
-    text-align: center;
-    border: 1px solid white;
-    border-radius: 3px;
-    margin: 0px 5px 0px 5px;
-}
-
-.bl-buttons{
-    width: 35%;
-    padding: 10px 15px 10px 15px;
-}
-.bl-button-bought {
-    background: #f1f0f0;
-    font-weight: bold;
-    font-size: 10px;
-    color: #707070;
-    border: 1px solid #c6c6c6;
-    box-shadow: 0 2px #d0d0d0;
-    border-radius: 3px;
-    height: 30px;
-    width: 85px;
-    float: right;
 }
 
 .bl-button{
@@ -110,6 +62,86 @@ body{
     height: 30px;
     border: 1px solid white;
     border-radius: 15px;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.bl-button.bl-button-add{
+    background: #2185d0;
+    font-size: 15px;
+    box-shadow: 0px -5px 0px 0px #2176b6 inset;
+    height: auto;
+    width: 140px;
+    transition: 0s;
+    border: 0;
+    border-left: 1px solid white;
+    border-radius: 0 3px 3px 0;
+}
+
+.bl-button.bl-button-add:hover{
+    background: #1678c3;
+}
+
+
+.bl-row{
+    height: auto;
+    border-top: 1px solid #e3e0e0;
+    border-radius: 1px;
+    display: flex;
+}
+
+.bl-product{
+    width: 35%;
+    padding: 14px 14px 14px 14px;
+    position: relative;
+}
+
+.bl-name-product{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: auto;
+    font-size: 16px;
+}
+.bl-count{
+    width: 25%;
+    padding: 7px 14px 0px 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.bl-label{
+    background: #d9d9d9;
+    color: #4f4f4f;
+    width: auto;
+    height: 20px;
+    text-align: center;
+    padding: 5px 8px 0px 8px;
+    border: 1px solid white;
+    border-radius: 3px;
+    margin: 2px 5px 1px 5px;
+}
+
+.bl-buttons{
+    width: 40%;
+    padding: 7px 14px 7px 7px;
+}
+
+.bl-button.bought-button{
+    background: #f1f0f0;
+    font-weight: bold;
+    font-size: 10px;
+    color: #707070;
+    border: 1px solid #c6c6c6;
+    box-shadow: 0 2px #d0d0d0;
+    border-radius: 3px;
+    width: 85px;
+    float: right;
+}
+
+.bl-button-bought:hover{
+    background: #c9cacc;
+    border-color: #aaabae;
 }
 
 .bl-button.plus{
@@ -119,14 +151,20 @@ body{
     min-height: 30px;
 }
 
+.plus:hover{
+    background: #009600;
+    box-shadow: 0px -3px 0px 0px #007300 inset;
+}
+
 .bl-button.minus{
-    /*Active*/
-    /*background: #d70303;*/
-    /*box-shadow: 0px -3px 0px 0px #ca0303 inset;*/
-    /*Pasive*/
     background: #ff9191;
     min-width: 30px;
     min-height: 30px;
+}
+
+.minus:hover {
+    background: #d70303;
+    box-shadow: 0px -3px 0px 0px #ca0303 inset;
 }
 
 .bl-button.delete{
@@ -141,15 +179,15 @@ body{
 }
 
 .bl-bought{
-    width: 35%;
-    float: left;
     border: 1px solid #e3e0e0;
     border-radius: 10px;
     background: white;
 }
 
 .bl-title{
-    height: 50px;
+    height: auto;
+    font-weight: 700;
+    font-size: 18px;
     padding: 15px 15px 15px 15px;
     width: 100%;
 }
@@ -160,7 +198,7 @@ body{
 
 .bl-left{
     height: 100%;
-    padding: 15px;
+    padding: 7px 7px 7px 14px;
 }
 
 .bl-product-left{
@@ -182,21 +220,167 @@ body{
     font-weight: bold;
     padding-top: 3px;
 }
-
-.bl-product-num{
-    background: #e94000;
+.bl-product-num {
+    background: coral;
     font-size: 10px;
-    font-weight: bold;
     color: white;
-    width: 17px;
-    height: 17px;
-    padding-top: 2px;
+    width: auto;
+    height: 10px;
     text-align: center;
-    border: 1px solid #e94000;
+    padding: 2px 4px 2px 4px;
+    border: 1px solid coral;
     border-radius: 10px;
-    margin: 0px 5px 0px 5px;
+    margin: 0 5px 0 5px;
 }
 
 .bl-bought-products{
-    height: 30px;
+    min-height: 30px;
+    height: auto;
 }
+
+.badge{
+    box-sizing: border-box;
+    position:fixed;
+    bottom:0;
+    left: 20px;
+    width:125px;
+    height:110px;
+    background: #ac00ac;
+    border:2px solid transparent;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    transition: 1s;
+    transition-timing-function: cubic-bezier(0.68,-0.55,0.265,1.55);
+    padding: 14px;
+    transform: translate(0,60px);
+
+}
+
+.badge:hover{
+    transform: translate(0,10px);
+    background: #4c01da;
+}
+
+.text1{
+    color: white;
+    font-weight: bold;
+    font-size: 21px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.text2{
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.text3{
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+}
+
+@media(max-width: 1200px){
+    .bl-column-list{
+        width: 630px;
+    }
+
+    .bl-column-bought{
+        width: 270px;
+    }
+}
+
+@media(max-width: 1000px){
+    .bl-column-list{
+        width: 480px;
+    }
+
+    .bl-column-bought{
+        width: 210px;
+    }
+}
+
+@media (max-width: 650px) {
+    .bl-background{
+        flex-wrap: wrap;
+    }
+    .bl-column-list{
+        width: 100%;
+    }
+    .bl-column-bought{
+        width: 100%;
+    }
+
+}
+
+@media print {
+    *{
+        box-shadow: black;
+    }
+    .badge{
+        border-color: #ac00ac;
+        transform: translate(0,50px);
+    }
+    .text1{
+        display: none;
+    }
+}
+
+[data-tooltip] {
+    position: relative;
+    /*cursor: default;*/
+}
+
+[data-tooltip]::after {
+    /*box-sizing: border-box;*/
+    content: attr(data-tooltip);
+
+    width: 100px;
+    height: 0;
+
+    position: absolute; /* Абсолютное позиционирование */
+    left: calc(50% - 50px);
+    text-align: center;
+    vertical-align: center;
+    /*padding: 5px;*/
+    margin: auto;
+    bottom: 115%;
+    font-size: 13px;
+    font-weight: 700;
+
+    background: #ac00ac;
+    color: #fff;
+    opacity: 0;
+    transition: 0.6s;
+    transition-delay: 0.1s;
+    pointer-events: none;
+    border-radius: 6px;
+}
+[data-tooltip]:hover::after {
+    padding-top: 7px;
+    height: 25px;
+    opacity: 1;
+}
+
+/*[data-tooltip]::after {*/
+/*    content: attr(data-tooltip); !* Выводим текст *!*/
+/*    position: absolute; !* Абсолютное позиционирование *!*/
+/*    width: 300px; !* Ширина подсказки *!*/
+/*    left: 0; top: 0; !* Положение подсказки *!*/
+/*    background: #3989c9; !* Синий цвет фона *!*/
+/*    color: #fff; !* Цвет текста *!*/
+/*    padding: 0.5em; !* Поля вокруг текста *!*/
+/*    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); !* Параметры тени *!*/
+/*    pointer-events: none; !* Подсказка *!*/
+/*    opacity: 0; !* Подсказка невидима *!*/
+/*    transition: 1s; !* Время появления подсказки *!*/
+/*}*/
+/*[data-tooltip]:hover::after {*/
+/*    opacity: 1; !* Показываем подсказку *!*/
+/*    top: 2em; !* Положение подсказки *!*/
+/*}*/
+
