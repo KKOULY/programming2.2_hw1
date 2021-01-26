@@ -13,12 +13,12 @@
             <div class="bl-list">
                 <div class="bl-row bl-find-row">
                     <input class="bl-search" placeholder="Назва товару">
-<!--                    <button class="bl-button-add" name = "Додати">Додати</button>-->
                     <button class="bl-button bl-button-add" name = "Додати" data-tooltip="Додати">Додати</button>
                 </div>
                 <div class="bl-row">
                     <div class="bl-product">
                         <span class = "bl-name-product">Помідори</span>
+<!--                        <input class="bl-name-product" placeholder="Помідори">-->
                     </div>
                     <div class="bl-count">
                         <button class="bl-button minus" data-tooltip="Зменшити">-</button>
@@ -62,7 +62,7 @@
         </div>
         <div class="bl-column-bought">
             <div class="bl-bought">
-                <div class="bl-row bl-first-row"><div class="bl-title">Залишилося</div></div>
+                <div class="bl-row" id="bl-first-row"><div class="bl-title">Залишилося</div></div>
                 <div class="bl-row">
                     <div class="bl-left">
                         <div class = "bl-product-left">
@@ -80,14 +80,21 @@
                     </div>
                 </div>
                 <div class="bl-row"><div class="bl-title">Куплене</div></div>
-                <div class="bl-row"><div class="bl-bought-products"></div></div>
+                <div class="bl-row">
+                    <div class="bl-left">
+                        <div class = "bl-product-left ">
+                            <span class="bl-product-name">Сир</span>
+                            <span class="bl-product-num">5</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 </div>
 <div class="badge">
-    <p class="text1">Buy List</p>
-    <p class="text2">Created by:</p>
-    <p class="text3">Dima Soloviov</p>
+    <p class="badge-text" id="text1">Buy List</p>
+    <p class="badge-text" id="text2">Created by:</p>
+    <p class="badge-text" id="text3">Dima Soloviov</p>
 </div>
 </body>
 </html>
