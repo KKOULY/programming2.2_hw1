@@ -6,13 +6,6 @@
 }
 body{
     background: #dbdbdb;
-    min-width: 400px;
-    position: relative;
-    min-height: 100%;
-}
-
-html, body {
-    height:100%;
 }
 
 .bl-background {
@@ -36,6 +29,7 @@ html, body {
     border: 1px solid #e3e0e0;
     border-radius: 10px;
     background: white;
+    box-shadow: 0 0 10px 3px #cdcdcd;
 }
 
 .bl-row.bl-find-row{
@@ -184,12 +178,6 @@ html, body {
     box-shadow: 0 2px #a90000;
 }
 
-.bl-bought{
-    border: 1px solid #e3e0e0;
-    border-radius: 10px;
-    background: white;
-}
-
 .bl-title{
     height: auto;
     font-weight: 700;
@@ -254,7 +242,7 @@ html, body {
     transition-timing-function: cubic-bezier(0.68,-0.55,0.265,1.55);
     padding: 14px;
     transform: translate(0,60px);
-
+    box-shadow: 0 0 10px 3px #cdcdcd;
 }
 
 .badge:hover{
