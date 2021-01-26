@@ -1,5 +1,5 @@
 *{
-    font-family: Arial;
+    font-family: Arial, serif;
     padding: 0;
     margin: 0;
     border: 0;
@@ -135,11 +135,13 @@ html, body {
     border: 1px solid #c6c6c6;
     box-shadow: 0 2px #d0d0d0;
     border-radius: 3px;
-    width: 85px;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
     float: right;
 }
 
-.bl-button-bought:hover{
+.bought-button:hover{
     background: #c9cacc;
     border-color: #aaabae;
 }
@@ -177,6 +179,10 @@ html, body {
     float: right;
     margin-left: 5px;
 }
+.delete:hover{
+    background: #ba0202;
+    box-shadow: 0 2px #a90000;
+}
 
 .bl-bought{
     border: 1px solid #e3e0e0;
@@ -192,13 +198,13 @@ html, body {
     width: 100%;
 }
 
-.bl-first-row{
+#bl-first-row{
     border: 0;
 }
 
 .bl-left{
     height: 100%;
-    padding: 7px 7px 7px 14px;
+    padding: 14px 14px 14px 14px;
 }
 
 .bl-product-left{
@@ -233,11 +239,6 @@ html, body {
     margin: 0 5px 0 5px;
 }
 
-.bl-bought-products{
-    min-height: 30px;
-    height: auto;
-}
-
 .badge{
     box-sizing: border-box;
     position:fixed;
@@ -261,27 +262,22 @@ html, body {
     background: #4c01da;
 }
 
-.text1{
+.badge-text{
     color: white;
     font-weight: bold;
-    font-size: 21px;
     text-align: left;
+}
+
+#text1{
+    font-size: 21px;
     margin-bottom: 10px;
 }
-
-.text2{
-    color: white;
-    font-weight: bold;
+#text2{
     font-size: 12px;
-    text-align: left;
     margin-bottom: 5px;
 }
-
-.text3{
-    color: white;
-    font-weight: bold;
+#text3{
     font-size: 13px;
-    text-align: left;
 }
 
 @media(max-width: 1200px){
@@ -318,16 +314,21 @@ html, body {
 }
 
 @media print {
-    *{
-        box-shadow: black;
-    }
     .badge{
         border-color: #ac00ac;
         transform: translate(0,50px);
+        background: white;
     }
-    .text1{
+    #text1{
         display: none;
     }
+    #text2{
+        color: black;
+    }
+    #text3{
+        color: black;
+    }
+
 }
 
 [data-tooltip] {
@@ -336,17 +337,15 @@ html, body {
 }
 
 [data-tooltip]::after {
-    /*box-sizing: border-box;*/
     content: attr(data-tooltip);
 
     width: 100px;
     height: 0;
 
-    position: absolute; /* Абсолютное позиционирование */
+    position: absolute;
     left: calc(50% - 50px);
     text-align: center;
     vertical-align: center;
-    /*padding: 5px;*/
     margin: auto;
     bottom: 115%;
     font-size: 13px;
@@ -365,22 +364,4 @@ html, body {
     height: 25px;
     opacity: 1;
 }
-
-/*[data-tooltip]::after {*/
-/*    content: attr(data-tooltip); !* Выводим текст *!*/
-/*    position: absolute; !* Абсолютное позиционирование *!*/
-/*    width: 300px; !* Ширина подсказки *!*/
-/*    left: 0; top: 0; !* Положение подсказки *!*/
-/*    background: #3989c9; !* Синий цвет фона *!*/
-/*    color: #fff; !* Цвет текста *!*/
-/*    padding: 0.5em; !* Поля вокруг текста *!*/
-/*    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); !* Параметры тени *!*/
-/*    pointer-events: none; !* Подсказка *!*/
-/*    opacity: 0; !* Подсказка невидима *!*/
-/*    transition: 1s; !* Время появления подсказки *!*/
-/*}*/
-/*[data-tooltip]:hover::after {*/
-/*    opacity: 1; !* Показываем подсказку *!*/
-/*    top: 2em; !* Положение подсказки *!*/
-/*}*/
 
