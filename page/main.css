@@ -1,5 +1,6 @@
 *{
-    font-family: Arial, serif;
+    /*font-family: Arial, serif;*/
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
     padding: 0;
     margin: 0;
     border: 0;
@@ -36,16 +37,18 @@ body{
     box-sizing: border-box;
     height: 65px;
     padding: 14px 14px 14px 14px;
-    border-top: 0;
     display: flex;
 }
 
+input{
+    outline: none;
+    width: 100%;
+}
 .bl-search{
     font-size: 14px;
     border: 1px solid #e3e0e0;
     border-right: 0;
     border-radius: 5px 0 0 5px;
-    width: 100%;
     padding-left: 15px;
 }
 
@@ -56,8 +59,9 @@ body{
     height: 30px;
     border: 1px solid white;
     border-radius: 15px;
-    transition: .5s;
+    /*transition: .3s;*/
     cursor: pointer;
+    outline: none;
 }
 
 .bl-button.bl-button-add{
@@ -75,6 +79,10 @@ body{
 .bl-button.bl-button-add:hover{
     background: #1678c3;
 }
+.bl-button.bl-button-add:active{
+    background: #1369ab;
+}
+
 
 
 .bl-row{
@@ -82,6 +90,10 @@ body{
     border-top: 1px solid #e3e0e0;
     border-radius: 1px;
     display: flex;
+}
+
+.bl-row:first-child{
+    border: 0;
 }
 
 .bl-product{
@@ -97,6 +109,21 @@ body{
     height: auto;
     font-size: 16px;
 }
+
+.bl-bought-row .bl-name-product{
+    text-decoration: line-through;
+}
+
+input.bl-name-product::-webkit-input-placeholder{ color:black}
+
+
+.bl-name-product:focus{
+    padding: 3px;
+    font-size: 14px;
+    border: 1px solid #5d5dfc;
+    box-shadow: 0 0 2px 1px #7a7afc;
+}
+
 .bl-count{
     width: 25%;
     padding: 7px 14px 0px 14px;
@@ -109,11 +136,13 @@ body{
     color: #4f4f4f;
     width: auto;
     height: 20px;
+    font-size: 13px;
     text-align: center;
     padding: 5px 8px 0px 8px;
     border: 1px solid white;
     border-radius: 3px;
     margin: 2px 5px 1px 5px;
+    /*transition: 1s;*/
 }
 
 .bl-buttons{
@@ -139,6 +168,10 @@ body{
     background: #c9cacc;
     border-color: #aaabae;
 }
+.bought-button:active{
+    background: #a2a2a2;
+    transition: 0s;
+}
 
 .bl-button.plus{
     background: #00bc00;
@@ -147,20 +180,43 @@ body{
     min-height: 30px;
 }
 
+.bl-bought-row .plus{
+    display: none;
+}
+
 .plus:hover{
     background: #009600;
     box-shadow: 0px -3px 0px 0px #007300 inset;
 }
+.plus:active{
+    background: #006400;
+}
 
 .bl-button.minus{
-    background: #ff9191;
     min-width: 30px;
     min-height: 30px;
 }
 
-.minus:hover {
+.bl-bought-row .minus{
+    display: none;
+}
+
+.minus.turn-on{
+    background: #e20202;
+    box-shadow: 0px -3px 0px 0px #d40303 inset;
+}
+.minus.turn-off{
+    background: #ff9191;
+    box-shadow: none;
+    cursor: default;
+}
+
+.minus.turn-on:hover {
     background: #d70303;
     box-shadow: 0px -3px 0px 0px #ca0303 inset;
+}
+.minus.turn-on:active {
+    background: #a40000;
 }
 
 .bl-button.delete{
@@ -173,9 +229,15 @@ body{
     float: right;
     margin-left: 5px;
 }
+.bl-bought-row .delete{
+    display: none;
+}
 .delete:hover{
     background: #ba0202;
     box-shadow: 0 2px #a90000;
+}
+.delete:active{
+    background: #a40000;
 }
 
 .bl-title{
@@ -186,13 +248,11 @@ body{
     width: 100%;
 }
 
-#bl-first-row{
-    border: 0;
-}
-
 .bl-left{
     height: 100%;
     padding: 14px 14px 14px 14px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .bl-product-left{
@@ -207,12 +267,15 @@ body{
     margin-right: 5px;
     margin-bottom: 5px;
 }
+.bl-bought-row .bl-product-name{
+    text-decoration: line-through;
+}
 
 .bl-product-name{
     color: #4f4f4f;
     font-size: 10px;
     font-weight: bold;
-    padding-top: 3px;
+    padding-top: 4px;
 }
 .bl-product-num {
     background: coral;
@@ -352,4 +415,5 @@ body{
     height: 25px;
     opacity: 1;
 }
+
 
