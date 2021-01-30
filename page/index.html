@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>My Page</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="js/main.js"></script>
 
 </head>
 <body>
@@ -13,17 +13,16 @@
         <div class="bl-column-list">
             <div class="bl-list">
                 <div class="bl-row bl-find-row">
-                    <input class="bl-search" placeholder="Назва товару">
+                    <input class="bl-search" placeholder="Назва товару" maxlength="30">
                     <button class="bl-button bl-button-add" name = "Додати" data-tooltip="Додати">Додати</button>
                 </div>
                 <div class="bl-row">
                     <div class="bl-product">
-                        <span class = "bl-name-product">Помідори</span>
-<!--                        <input class="bl-name-product" placeholder="Помідори">-->
+                            <input class = "bl-name-product" value="Помідори">
                     </div>
                     <div class="bl-count">
-                        <button class="bl-button minus" data-tooltip="Зменшити">-</button>
-                        <span class="bl-label">3</span>
+                        <button class="bl-button minus turn-off" data-tooltip="Зменшити">-</button>
+                        <span class="bl-label">1</span>
                         <button class="bl-button plus" data-tooltip="Збільшити">+</button>
                     </div>
                     <div class="bl-buttons">
@@ -33,11 +32,11 @@
                 </div>
                 <div class="bl-row">
                     <div class="bl-product">
-                        <span class = "bl-name-product">Печиво</span>
+                            <input class = "bl-name-product" value="Печиво">
                     </div>
                     <div class="bl-count">
-                        <button class="bl-button minus" data-tooltip="Зменшити">-</button>
-                        <span class="bl-label">4</span>
+                        <button class="bl-button minus turn-off" data-tooltip="Зменшити">-</button>
+                        <span class="bl-label">1</span>
                         <button class="bl-button plus" data-tooltip="Збільшити">+</button>
                     </div>
                     <div class="bl-buttons">
@@ -47,11 +46,11 @@
                 </div>
                 <div class="bl-row">
                     <div class="bl-product">
-                        <span class = "bl-name-product">Сир</span>
+                            <input class = "bl-name-product" value="Сир">
                     </div>
                     <div class="bl-count">
-                        <button class="bl-button minus" data-tooltip="Зменшити">-</button>
-                        <span class="bl-label">3</span>
+                        <button class="bl-button minus turn-off" data-tooltip="Зменшити">-</button>
+                        <span class="bl-label">1</span>
                         <button class="bl-button plus" data-tooltip="Збільшити">+</button>
                     </div>
                     <div class="bl-buttons">
@@ -63,12 +62,12 @@
         </div>
         <div class="bl-column-bought">
             <div class="bl-list">
-                <div class="bl-row" id="bl-first-row"><div class="bl-title">Залишилося</div></div>
+                <div class="bl-row"><div class="bl-title">Залишилося</div></div>
                 <div class="bl-row">
                     <div class="bl-left">
                         <div class = "bl-product-left">
                             <span class="bl-product-name">Помідори</span>
-                            <span class="bl-product-num">3</span>
+                            <span class="bl-product-num">1</span>
                         </div>
                         <div class = "bl-product-left">
                             <span class="bl-product-name">Печиво</span>
@@ -76,17 +75,14 @@
                         </div>
                         <div class = "bl-product-left ">
                             <span class="bl-product-name">Сир</span>
-                           <span class="bl-product-num">5</span>
+                           <span class="bl-product-num">1</span>
                         </div>
                     </div>
                 </div>
                 <div class="bl-row"><div class="bl-title">Куплене</div></div>
-                <div class="bl-row">
+                <div class="bl-row bl-bought-row">
                     <div class="bl-left">
-                        <div class = "bl-product-left ">
-                            <span class="bl-product-name">Сир</span>
-                            <span class="bl-product-num">5</span>
-                        </div>
+
                     </div>
                 </div>
             </div>
