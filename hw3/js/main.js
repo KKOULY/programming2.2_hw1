@@ -1,61 +1,14 @@
 $(function(){
-    var prodRowCopy = $('.bl-product:first').parent().clone();
-    var prodLeftCopy = $(".bl-product-left:first").clone();
+    let PROD_ROW_COPY = $('.bl-product:first').parent().clone();
+    let PROD_LEFT_COPY = $(".bl-product-left:first").clone();
+
+    distributeOrder();
 
     function distributeOrder() {
         $(".bl-product-left").each(function (index) {
             $(this).css("order",""+index);
         })
     }
-
-    distributeOrder();
-    // let Products = [];
-    // class Product{
-    //     constructor() {
-    //         this.productRow = null;
-    //         this.productLeft = null;
-    //     }
-    //     setProductRow(productRow){
-    //         this.productRow = productRow;
-    //     }
-    //     setProductLeft(productLeft){
-    //         this.productLeft = productLeft;
-    //     }
-    //     getProductRow(){
-    //         return this.productRow;
-    //     }
-    //     getProductLeft(){
-    //         return this.productLeft;
-    //     }
-    // }
-    //
-    // function fillProductsArray() {
-    //     $("bl-product").each(function (index){
-    //         var prodRow = $(this).parent();
-    //
-    //         function findProdLeftIndex(index) {
-    //             $("")
-    //             return undefined;
-    //         }
-    //
-    //         var prodLeft = findProdLeftIndex(index);
-    //     })
-    // }
-
-    // fillProductsArray();
-
-
-    function rearrangeProd(prodRow,point) {
-        if(point!==0) {
-            var prod = findLeftProd(prodRow);
-            var prodClone = prod.clone();
-            prod.remove();
-            if(point > 0){
-                $(".bl-left:first").append(prodClone);
-            }else $(".bl-left:last").append(prodClone);
-        }
-    }
-
 
     //Bought button click change row
     $(document).on('click','.bought-button',function (){
@@ -74,9 +27,24 @@ $(function(){
             }
             row.fadeIn(300);
         })
+        function rearrangeProd(prodRow,point) {
+            if(point!==0) {
+                var prod = findLeftProd(prodRow);
+                var prodClone = prod.clone();
+                prod.remove();
+                if(point > 0){
+                    $(".bl-left:first").append(prodClone);
+                }else $(".bl-left:last").append(prodClone);
+            }
+        }
     })
+
     /*Button add that create new product*/
     $(".bl-button.bl-button-add").click(function () {
+        createAndAddProduct()
+    })
+
+    function createAndAddProduct(){
         var searchField = $(".bl-search");
         var text = searchField.val();
         if(!text.localeCompare("")) return null;
@@ -85,31 +53,66 @@ $(function(){
         var prod_left_new = createNewProductLeft(text,"1",prod_new.index()-1);
         $(".bl-column-bought").find(".bl-left:first").append(prod_left_new);
         searchField.val("").focus();
+    }
+    $(document).on("keydown",function (e) {
+        console.log(e.key);
+        if(e.key == "Enter"){
+            createAndAddProduct();
+        }
     })
+    
     //Function that create new product ROW by text and primary count
     function createNewProduct(text, count){
-        var prod_new = prodRowCopy.clone();
+        var prod_new = PROD_ROW_COPY.clone();
         prod_new.children(".bl-product").children("input").attr("value",text);
         prod_new.children(".bl-count").children("span").text(count);
         return prod_new;
     }
     //Function that create new product circle(left) by text and primary count;
     function createNewProductLeft(text, count, index) {
-        var prod_new = prodLeftCopy.clone();
+        let prod_new = PROD_LEFT_COPY.clone();
         prod_new.children(".bl-product-name").text(text);
         prod_new.children(".bl-product-num").attr("value",count);
         prod_new.css("order",""+index);
         return prod_new;
     }
     //Change name of product
-        $(document).on('keyup','.bl-name-product',function (){
-        var text = $(this).val();
+    $(document).on('keyup','.bl-name-product',function (){
+        let text = $(this).val();
         function renameProd(text, prodRow) {
-            var $prod = findLeftProd(prodRow);
+            let $prod = findLeftProd(prodRow);
             $prod.children(".bl-product-name").text(text);
         }
+        renameProd(text, $(this).parent().parent());
+    })
 
-       renameProd(text, $(this).parent().parent());
+    $(document).on("focus",".bl-name-product",function () {
+        let $prod = findLeftProd($(this).parent().parent());
+        $prod.addClass("focus-field");
+    })
+    $(document).on("blur",".bl-name-product",function () {
+        let $prod = findLeftProd($(this).parent().parent());
+        $prod.removeClass("focus-field");
+    })
+
+    //Delete product
+    $(document).on('click','.delete',function (){
+        let $row = $(this).parent().parent();
+        let $prodLeft = findLeftProd($row);
+
+        function rearrangeOrder(number) {
+            $(".bl-product-left").each(function () {
+                let $prod = $(this);
+                if(number<$prod.css("order")){
+                    let newOrder = parseInt($prod.css("order"));
+                    $prod.css("order",newOrder-1+"");
+                }
+            })
+        }
+
+        rearrangeOrder($row.index()-1);
+        $prodLeft.remove();
+        $row.remove();
     })
 
     $(document).on('click','.minus,.plus',function (){
@@ -118,14 +121,20 @@ $(function(){
             let num = $row.find(".bl-count .bl-label");
             let newNum = parseInt(num.text())+number;
             let $count =  $row.children(".bl-count").find(".bl-label");
-            $count.fadeOut(200,function () {
-                checkColor(num.text(),newNum,button);
-                if(newNum>=1) num.text(newNum);
-                $count.fadeIn(200);
-            })
+            if(!button.hasClass("turn-off")) {
+                $count.fadeOut(200, function () {
+                    checkColor(num.text(), newNum, button);
+                    if (newNum >= 1) {
+                        num.text(newNum);
+                        let prodLeft = findLeftProd($row);
+                        console.log(prodLeft.html());
+                        prodLeft.children(".bl-product-num").text(newNum);
+                    }
+                    $count.fadeIn(200);
+                })
+            }
             function checkColor(oldN,newN,button) {
                 button = button.parent().children(".minus");
-                console.log("Old: "+oldN+" NEW: "+newN);
                 if(oldN==1 && newN==2) {
                     button.addClass("turn-on");
                     button.removeClass("turn-off");
@@ -141,11 +150,8 @@ $(function(){
     })
 
     function findLeftProd(prodRow){
-        var index = 0;
-        index = prodRow.index()-1;
-        if(!prodRow.hasClass('bl-bought-row')) return eq($(".bl-left:first .bl-product-left"),index);
-        else return eq($(".bl-left:last .bl-product-left"),index);
-
+        let index = prodRow.index()-1;
+        return eq(".bl-product-left",index);
     }
 
     function eq(selector,index){

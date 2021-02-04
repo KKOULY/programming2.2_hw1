@@ -138,7 +138,7 @@ input.bl-name-product::-webkit-input-placeholder{ color:black}
     height: 20px;
     font-size: 13px;
     text-align: center;
-    padding: 5px 8px 0px 8px;
+    padding: 5px 9px 0px 9px;
     border: 1px solid white;
     border-radius: 3px;
     margin: 2px 5px 1px 5px;
@@ -266,6 +266,11 @@ input.bl-name-product::-webkit-input-placeholder{ color:black}
     justify-content: left;
     margin-right: 5px;
     margin-bottom: 5px;
+    transition: .3s;
+}
+.focus-field{
+    box-shadow: 0 0 10px 3px rgb(188, 188, 188);
+    border-color: rgb(188, 188, 188);
 }
 .bl-bought-row .bl-product-name{
     text-decoration: line-through;
@@ -369,6 +374,12 @@ input.bl-name-product::-webkit-input-placeholder{ color:black}
         border-color: #ac00ac;
         transform: translate(0,50px);
         background: white;
+    }
+    .bl-column-bought{
+        width: 27%;
+    }
+    .bl-column-list{
+        width: 65%;
     }
     #text1{
         display: none;
