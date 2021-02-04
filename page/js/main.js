@@ -41,6 +41,10 @@ $(function(){
 
     /*Button add that create new product*/
     $(".bl-button.bl-button-add").click(function () {
+        createAndAddProduct()
+    })
+
+    function createAndAddProduct(){
         var searchField = $(".bl-search");
         var text = searchField.val();
         if(!text.localeCompare("")) return null;
@@ -49,7 +53,14 @@ $(function(){
         var prod_left_new = createNewProductLeft(text,"1",prod_new.index()-1);
         $(".bl-column-bought").find(".bl-left:first").append(prod_left_new);
         searchField.val("").focus();
+    }
+    $(document).on("keydown",function (e) {
+        console.log(e.key);
+        if(e.key == "Enter"){
+            createAndAddProduct();
+        }
     })
+    
     //Function that create new product ROW by text and primary count
     function createNewProduct(text, count){
         var prod_new = PROD_ROW_COPY.clone();
@@ -66,7 +77,7 @@ $(function(){
         return prod_new;
     }
     //Change name of product
-        $(document).on('keyup','.bl-name-product',function (){
+    $(document).on('keyup','.bl-name-product',function (){
         let text = $(this).val();
         function renameProd(text, prodRow) {
             let $prod = findLeftProd(prodRow);
@@ -74,6 +85,16 @@ $(function(){
         }
         renameProd(text, $(this).parent().parent());
     })
+
+    $(document).on("focus",".bl-name-product",function () {
+        let $prod = findLeftProd($(this).parent().parent());
+        $prod.addClass("focus-field");
+    })
+    $(document).on("blur",".bl-name-product",function () {
+        let $prod = findLeftProd($(this).parent().parent());
+        $prod.removeClass("focus-field");
+    })
+
     //Delete product
     $(document).on('click','.delete',function (){
         let $row = $(this).parent().parent();
